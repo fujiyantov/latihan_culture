@@ -37,10 +37,13 @@
         ng-class="{'is-visible': headerVisible, 'is-enabled': headerEnabled}" ng-controller="headerController">
       <div class="header--left" ng-class="{'is-hidden': experienceActive}">
         <a class="logo" href="#" title="Brand" ng-click="goHome($event)">
-          <!-- <img src="./assets/icons/logo.png" style="height:90px!important; margin-top: -20px;" alt="knkm">
-          <img src="./assets/icons/logo-kementrian.svg" style="height:90px!important; margin-top: -20px;" alt="knkm"> -->
-          <!-- <img src="./assets/icons/logo-kbkm.png" style="height:90px!important; margin-top: -20px;" alt="knkm"> -->
-          <img src="./assets/icons/logo-kbkm.png"  style="height:48px!important;" alt="kbkm">
+        <img src="./assets/icons/logo.png" style="height: 53px !important" alt="knkm">
+      </a>
+      <a class="logo" href="#" title="Brand" ng-click="goHome($event)">
+          <img src="./assets/icons/logo-kementrian.svg" alt="knkm">
+        </a>
+        <a class="logo" href="#" title="Brand" ng-click="goHome($event)">
+          <img src="./assets/icons/logo-kbkm.png" alt="kbkm">
         </a>
         <div class="breadcrumbs"
             ng-controller="breadcrumbController"
@@ -58,15 +61,6 @@
           <!-- <span>View Chapters</span> -->
           <!-- <span>Menu</span> -->
         </a>
-        <!-- <a class="menu-share" href="gallery.html" target="_blank" style="margin-left: 75px!important;">GALLERY</a>
-            <a class="menu-share" style="margin-left: 75px!important;">TRAVELLER</a> -->
-        <!-- <a class="menu-share"
-            ng-click="shareFB()" ng-style="{'background-image': 'url(./assets/icons/share-facebook.svg)'}"></a>
-        <a class="menu-share"
-            ng-click="shareTwitter()" ng-style="{'background-image': 'url(./assets/icons/share-twitter.svg)'}"></a> -->
-        <!-- <a class="menu-takeaction"
-            ng-click="visit('take-action')"
-            ng-class="{'is-visible': !takeActionActive}">Take Action</a> -->
       </div>
       <a class="menu-home" ng-click="goHome($event)" ng-class="{'is-visible': experienceActive}">View the Full Site</a>
     </header>
@@ -139,7 +133,7 @@
         </a>
       </div> -->
       <div class="menu-overlay"></div>
-      <div class="menuTitle" style="top: 25px !important;">Borobudur<br /><span class="t-strikethrough">National Monument</span></div>
+      <div class="menuTitle">Borobudur<br /><span class="t-strikethrough">National Monument</span></div>
       <!-- <a href="/credits" class="menu-creditslink" ng-click="visit($event)">Credits</a> -->
     </div>
   </div>
@@ -155,7 +149,7 @@
       <div class="menu-arrow-bg"></div>
     </div>
 
-    <div class="menuSections" ng-if="isMobile" style="overflow:auto; position:relative; top: 20px!important; margin: 10px 0; width: 250px!important;">
+    <div class="menuSections" ng-if="isMobile">
       <a href="#" ng-repeat="item in main"
           ng-class="{'menuSection--action' : $index == 2, 'is-active': section == $index}"
           ng-click="move($index)">//item.content.name//
@@ -293,8 +287,8 @@
     </div>
     <div class="intro-meta" ng-class="{'is-active': (showMeta && !showDoomsday)}">
       <div class="meta-icons">
-        <!-- <div class="meta-sound"></div> -->
-        <!-- <div class="meta-vr"></div> -->
+        <div class="meta-sound"></div>
+        <div class="meta-vr"></div>
       </div>
       <!-- <p class="meta-note">Bears Ears is a multimedia experience that has been optimized for sound and VR</p> -->
       <div class="meta-buttons">
@@ -373,34 +367,53 @@
 </section>
 
 
-  <section class="takeaction"
-    ng-controller="takeactionController"
-    ng-class="{'is-active': active, 'is-menu-open': isMenuOpen}">
-  <div class="takeaction--gradient"
-    ng-class="{'is-visible': (showGradient && active)}"></div>
-  <div class="takeaction--callout"
-      ng-class="{'is-active': active}">
-    <div class="takeaction-bg"></div>
-    <h1>Take<br />Action</h1>
-    <p><strong>Public lands have never been more threatened than right now.</strong></p>
-    <p>&nbsp;</p>
-    <p>The fate of our national monuments is in the hands of the Trump administration. Public lands—from Maine to Hawai’i—provide enormous cultural, ecological and recreational value, and they are at risk. Removing protections for these wild places to open them up for development will not make us energy independent, and history shows that when states control these lands, they are sold to the highest bidder. This is not a chance we are willing to take.</p>
-    <p>&nbsp;</p>
-    <p><strong>Defend the land you have left.</strong></p>
-    <p class="footnote"><strong>Powered by <a href="http://phone2action.com" target="_blank">Phone2Action</a></strong></p>
-  </div>
-
-  <div class="takeaction--form"
-      ng-class="{'is-active': active}">
-    <div class="takeaction-formintro">
-      <h2>The President Stole Bears Ears National Monument</h2>
-      <p>In an illegal move, the president just reduced the size of Bears Ears and Grand Staircase-Escalante National Monuments. This is the largest elimination of protected land in American history.</p>
+  <section class="takeaction" ng-controller="takeactionController" ng-class="{'is-active': active, 'is-menu-open': isMenuOpen}">
+    <div class="takeaction--gradient" ng-class="{'is-visible': (showGradient && active)}"></div>
+    <div class="takeaction--callout" ng-class="{'is-active': active}">
+      <div class="takeaction-bg"></div>
+      <h1>Take<br />Action</h1>
+      <p><strong>Public lands have never been more threatened than right now.</strong></p>
       <p>&nbsp;</p>
-      <p>Tell the Administration that they don’t have the authority to take these lands away from you.</p>
+      <p>The fate of our national monuments is in the hands of the Trump administration. Public lands—from Maine to Hawai’i—provide enormous cultural, ecological and recreational value, and they are at risk. Removing protections for these wild places to open them up for development will not make us energy independent, and history shows that when states control these lands, they are sold to the highest bidder. This is not a chance we are willing to take.</p>
+      <p>&nbsp;</p>
+      <p><strong>Defend the land you have left.</strong></p>
+      <p class="footnote"><strong>Powered by <a href="http://phone2action.com" target="_blank">Phone2Action</a></strong></p>
     </div>
-    <div class="advocacy-actionwidget" data-domain="p2a.co" data-shorturl="3lXjOXB" data-responsive="true"></div>
-  </div>
-</section>
+
+    <div class="takeaction--form" ng-class="{'is-active': active}">
+      <div class="takeaction-formintro">
+        <h2>The President Stole Bears Ears National Monument</h2>
+        <p>In an illegal move, the president just reduced the size of Bears Ears and Grand Staircase-Escalante National Monuments. This is the largest elimination of protected land in American history.</p>
+        <p>&nbsp;</p>
+        <p>Tell the Administration that they don’t have the authority to take these lands away from you.</p>
+      </div>
+      <div class="advocacy-actionwidget" data-domain="p2a.co" data-shorturl="3lXjOXB" data-responsive="true"></div>
+    </div>
+  </section>
+
+  <section class="takeaction" ng-controller="takeactionController" ng-class="{'is-active': active, 'is-menu-open': isMenuOpen}">
+    <div class="takeaction--gradient" ng-class="{'is-visible': (showGradient && active)}"></div>
+    <div class="takeaction--callout" ng-class="{'is-active': active}">
+      <div class="takeaction-bg"></div>
+      <h1>Take<br />Gan</h1>
+      <p><strong>Public lands have never been more threatened than right now.</strong></p>
+      <p>&nbsp;</p>
+      <p>The fate of our national monuments is in the hands of the Trump administration. Public lands—from Maine to Hawai’i—provide enormous cultural, ecological and recreational value, and they are at risk. Removing protections for these wild places to open them up for development will not make us energy independent, and history shows that when states control these lands, they are sold to the highest bidder. This is not a chance we are willing to take.</p>
+      <p>&nbsp;</p>
+      <p><strong>Defend the land you have left.</strong></p>
+      <p class="footnote"><strong>Powered by <a href="http://phone2action.com" target="_blank">Phone2Action</a></strong></p>
+    </div>
+
+    <div class="takeaction--form" ng-class="{'is-active': active}">
+      <div class="takeaction-formintro">
+        <h2>The President Stole Bears Ears National Monument</h2>
+        <p>In an illegal move, the president just reduced the size of Bears Ears and Grand Staircase-Escalante National Monuments. This is the largest elimination of protected land in American history.</p>
+        <p>&nbsp;</p>
+        <p>Tell the Administration that they don’t have the authority to take these lands away from you.</p>
+      </div>
+      <div class="advocacy-actionwidget" data-domain="p2a.co" data-shorturl="3lXjOXB" data-responsive="true"></div>
+    </div>
+  </section>
 
   <section class="credits" ng-controller="creditsController"
     ng-class="{'is-active': active, 'is-menu-open': isMenuOpen}">
