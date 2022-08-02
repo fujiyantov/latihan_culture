@@ -167,6 +167,7 @@
     <div class="menuContainer" ng-click="close()">
       <a class="menuItem"
           href="//'/' + item.id//"
+          ng-if="!item.content.videoVR && (item.type == 'video')"
           ng-click="visit($event)"
           ng-repeat="item in full"
           ng-class="{'menuItem--firstTier' : item.level == 1}">
@@ -270,15 +271,15 @@
       <span ng-if="!place.content.videoVR && (place.type == 'video')" class="card-cta">Explore Video</span>
       <span ng-if="(place.type == 'streetview')" class="card-cta">Explore Street View</span>
       <span ng-if="(place.type == 'pano')" class="card-cta">Explore Panorama</span>
-      <span ng-if="(place.type == 'narasi')" class="card-cta">Explore Narasi</span>
+      <span ng-if="(place.type == 'story')" class="card-cta">Explore Story</span>
     </div>
     <div class="card-close" ng-click="hideCard($event)"></div>
   </a>
 
   <a class="card card--map" id="//place.id//"
     ng-repeat="place in places"
-    ng-if="(place.type == 'narasi')"
-    href="https://www.google.com/" target="_blank"
+    ng-if="(place.type == 'story')"
+    href="//place.content.urlTarget//" target="_blank"
     ng-class="{'is-active': ($parent.currentMarker.id == place.id)}"
     ng-style="{'background-image': 'url(' + place.content.image + ')',
               'left': $parent.currentCoords.x, 'top': $parent.currentCoords.y}">
@@ -291,7 +292,7 @@
       <span ng-if="!place.content.videoVR && (place.type == 'video')" class="card-cta">Explore Video</span>
       <span ng-if="(place.type == 'streetview')" class="card-cta">Explore Street View</span>
       <span ng-if="(place.type == 'pano')" class="card-cta">Explore Panorama</span>
-      <span ng-if="(place.type == 'narasi')" class="card-cta">Explore Narasi</span>
+      <span ng-if="(place.type == 'story')" class="card-cta">Explore Story</span>
     </div>
     <div class="card-close" ng-click="hideCard($event)"></div>
   </a>
