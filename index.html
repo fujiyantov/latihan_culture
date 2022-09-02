@@ -152,7 +152,7 @@
     <div class="menuSections" ng-if="isMobile">
       <a href="#" ng-repeat="item in main"
           ng-class="{'menuSection--action' : $index == 2, 'is-active': section == $index}"
-          ng-click="move($index)">//item.content.name//
+          ng-click="move($index)">//item.content.name// 
       </a>
       <div class="menuSections-overlay" ng-class="{'is-active': scrolled}"></div>
     </div>
@@ -166,9 +166,43 @@
 
     <div class="menuContainer" ng-click="close()">
       <a class="menuItem"
-          href="//'/' + item.id//"
-          ng-if="!item.content.videoVR && (item.type == 'video')"
+          href="//item.content.urlTarget//"
+          
           ng-click="visit($event)"
+          ng-repeat="item in full"
+          ng-class="{'menuItem--firstTier' : item.level == 1}">
+        <div class="menuItem-background">
+          <div ng-if="isMobile" ng-style="{'background-image': 'url(' + item.content.image + ')'}"></div>
+          <div ng-if="!isMobile" ng-style="{'background-image': 'url(' + item.content.image + ')'}"></div>
+        </div>
+        <div class="menuItem-content menuItem-content--base">
+          <div class="menuItem-meta">
+            <span class="menuItem-number">//item.content.number// </span>
+            <span class="menuItem-type typeIcon--//type//" ng-repeat="type in item.content.icons"></span>
+            <div class="menuItem-bar"></div>
+          </div>
+          <span class="menuItem-name">//item.content.name//</span>
+          <span class="menuItem-watched" ng-class="{'is-visible': item.watched}">Watched</span>
+        </div>
+
+        <div class="menuItem-content menuItem-content--hover">
+          <div class="menuItem-container">
+            <div class="menuItem-meta">
+              <span class="menuItem-number">//item.content.number//</span>
+              <span class="menuItem-type typeIcon--//type//" ng-repeat="type in item.content.icons"></span>
+              <div class="menuItem-bar"></div>
+            </div>
+            <span class="menuItem-name">//item.content.name//</span>
+            <p class="menuItem-description">//item.content.description//</p>
+            <!-- <div class="menuItem-link" ng-if="!item.content.videoVR && (item.type == 'video')" href="//'/' + item.id//" ng-click="visit($event)">//item.content.cta ? item.content.cta : 'Explore'//</div> -->
+            <div class="menuItem-link" href="//item.content.urlTarget//" target="_blank">//item.content.cta ? item.content.cta : 'Explore'//</div>
+          </div>
+        </div>
+      </a>
+
+      <!-- <a class="menuItem"
+          ng-if="(item.type == 'story')"
+          href="//item.content.urlTarget//" target="_blank"
           ng-repeat="item in full"
           ng-class="{'menuItem--firstTier' : item.level == 1}">
         <div class="menuItem-background">
@@ -194,10 +228,10 @@
             </div>
             <span class="menuItem-name">//item.content.name//</span>
             <p class="menuItem-description">//item.content.description//</p>
-            <div class="menuItem-link" href="//'/' + item.id//" ng-click="visit($event)">//item.content.cta ? item.content.cta : 'Explore'//</div>
+            <div class="menuItem-link" href="//item.content.urlTarget//" target="_blank">//item.content.cta ? item.content.cta : 'Explore'//</div>
           </div>
         </div>
-      </a>
+      </a> -->
       <div class="menu-overlay"></div>
     </div>
   </div>
@@ -307,7 +341,6 @@
     ng-class="{'is-active': active, 'is-controls-visible': (controlActive && showControls || (currentState == 'paused'))}">
   <div class="intro-info" ng-class="{'is-active': (showLoading || showMeta), 'is-done': introEnded}">
     <div class="intro-loading" ng-class="{'is-active' : showLoading}">
-      <!-- <img class="loading-logo" src="./assets/icons/logo-kbkm.png" alt="kbkm"> -->
       <div class="loading-bear"></div>
     </div>
     <div class="intro-meta" ng-class="{'is-active': (showMeta && !showDoomsday)}">
@@ -315,9 +348,8 @@
         <div class="meta-sound"></div>
         <div class="meta-vr"></div>
       </div>
-      <!-- <p class="meta-note">Bears Ears is a multimedia experience that has been optimized for sound and VR</p> -->
       <div class="meta-buttons">
-        <a class="meta-experience" ng-click="goTo($event, 'experience')">Experience VR</a>
+        <!-- <a class="meta-experience" ng-click="goTo($event, 'experience')">Experience VR</a> -->
         <a class="meta-skip" ng-click="goTo($event, 'home')" ng-class="{'is-active': showMeta, 'is-visible': (showControls || (currentState == 'paused'))}">Skip</a>
       </div>
     </div>

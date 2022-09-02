@@ -5742,7 +5742,8 @@ section.credits .credits-group strong .intro-preview a,
   }
 
   .menu .menu-main .menuItem-number {
-    font-size: 3em;
+    /* font-size: 3em; */
+    font-size: 1.5em;
   }
 
   .menu .menu-main .controls-map {
@@ -5783,7 +5784,7 @@ section.credits .credits-group strong .intro-preview a,
     margin: 0;
     /* padding: 80px 0 40px; */
     /* dev */
-    padding: 125px 0 40px;
+    /* padding: 125px 0 40px; */
   }
 
   .menu .menuItem {
@@ -5889,11 +5890,13 @@ section.credits .credits-group strong .intro-preview a,
   }
 
   .menu .menuTitle {
-    font-size: 1.8em;
+    /* font-size: 1.8em; */
+    font-size: 1.3em;
     padding: 0 25px;
     /* top: 65px; */
     /* dev */
-    top: 80px;
+    /* top: 80px; */
+    top: 67px;
     width: 100%;
   }
 
