@@ -18,17 +18,20 @@
     <link rel="stylesheet" href="./css/main.css?cache=1511322399">
     <link rel="shortcut icon" type="image/x-icon" href="./assets/favicons/favicon.ico" />
     <style>
-      .menu.is-active {
+      /* .menu.is-active {
         visibility: visible!important;
         background: rgba(0, 0, 0, 0.4);
-      }
-      .m-hide-open {
+      } */
+      /* .m-hide-open {
         display: none!important;
-      }
+      } */
     </style>
   </head>
+  <!-- <body ng-class="{'is-mobile-chrome': isMobileChrome}"> -->
   <body ng-class="{'is-mobile-chrome': isMobileChrome}" style="background: url('../assets/background-1.jpg') center/cover no-repeat; height: 100vh;">
-        <header class="ng-scope is-visible is-enabled" ng-class="{'is-visible': headerVisible, 'is-enabled': headerEnabled}" ng-controller="headerController">
+        <!-- <header class="ng-scope is-visible is-enabled" ng-class="{'is-visible': headerVisible, 'is-enabled': headerEnabled}" ng-controller="headerController"> -->
+          <header
+          ng-class="{'is-visible': headerVisible, 'is-enabled': headerEnabled}" ng-controller="headerController">
       <div class="header--left" ng-class="{'is-hidden': experienceActive}">
         <a class="logo" href="#" title="Brand" ng-click="goHome($event)">
         <img src="./assets/icons/logo.png" style="height: 53px !important" alt="knkm">
@@ -60,9 +63,9 @@
     <div class="container">
       
 
-  <div class="menu ng-scope is-active" ng-controller="menuController"
+      <div class="menu" ng-controller="menuController"
     ng-class="{'is-active': menuActive}">
-  <div class="menu-main is-moving-between is-active"
+    <div class="menu-main"
       ng-class="{'is-active': (active == 'main'), 'is-moving-between': movingBetween}">
     <div class="menuContainer m-hide-open">
       <a href="/map" ng-click="visit($event)" class="menuItem">
@@ -130,7 +133,7 @@
     </div>
   </div>
 
-  <div class="menu-full is-moving-between"
+  <div class="menu-full"
       ng-class="{'is-active': (active == 'full'), 'is-moving-between': movingBetween}"}">
     <div class="menu-arrow menu-arrow--left"
         ng-class="{'is-visible': showBack}">
@@ -144,7 +147,7 @@
     <div class="menuSections" ng-if="isMobile">
       <a href="#" ng-repeat="item in main"
           ng-class="{'menuSection--action' : $index == 2, 'is-active': section == $index}"
-          ng-click="move($index)">//item.content.name// 
+          ng-click="move($index)">//item.content.name//
       </a>
       <div class="menuSections-overlay" ng-class="{'is-active': scrolled}"></div>
     </div>
@@ -158,42 +161,8 @@
 
     <div class="menuContainer" ng-click="close()">
       <a class="menuItem"
-          href="//item.content.urlTarget//"     
+          href="//'/' + item.id//"
           ng-click="visit($event)"
-          ng-repeat="item in full"
-          ng-class="{'menuItem--firstTier' : item.level == 1}">
-        <div class="menuItem-background">
-          <div ng-if="isMobile" ng-style="{'background-image': 'url(' + item.content.image + ')'}"></div>
-          <div ng-if="!isMobile" ng-style="{'background-image': 'url(' + item.content.image + ')'}"></div>
-        </div>
-        <div class="menuItem-content menuItem-content--base">
-          <div class="menuItem-meta">
-            <span class="menuItem-number">//item.content.number// </span>
-            <span class="menuItem-type typeIcon--//type//" ng-repeat="type in item.content.icons"></span>
-            <div class="menuItem-bar"></div>
-          </div>
-          <span class="menuItem-name">//item.content.name//</span>
-          <span class="menuItem-watched" ng-class="{'is-visible': item.watched}">Watched</span>
-        </div>
-
-        <div class="menuItem-content menuItem-content--hover">
-          <div class="menuItem-container">
-            <div class="menuItem-meta">
-              <span class="menuItem-number">//item.content.number//</span>
-              <span class="menuItem-type typeIcon--//type//" ng-repeat="type in item.content.icons"></span>
-              <div class="menuItem-bar"></div>
-            </div>
-            <span class="menuItem-name">//item.content.name//</span>
-            <p class="menuItem-description">//item.content.description//</p>
-            <!-- <div class="menuItem-link" ng-if="!item.content.videoVR && (item.type == 'video')" href="//'/' + item.id//" ng-click="visit($event)">//item.content.cta ? item.content.cta : 'Explore'//</div> -->
-            <div class="menuItem-link" href="//item.content.urlTarget//" target="_blank">//item.content.cta ? item.content.cta : 'Explore'//</div>
-          </div>
-        </div>
-      </a>
-
-      <!-- <a class="menuItem"
-          ng-if="(item.type == 'story')"
-          href="//item.content.urlTarget//" target="_blank"
           ng-repeat="item in full"
           ng-class="{'menuItem--firstTier' : item.level == 1}">
         <div class="menuItem-background">
@@ -219,10 +188,10 @@
             </div>
             <span class="menuItem-name">//item.content.name//</span>
             <p class="menuItem-description">//item.content.description//</p>
-            <div class="menuItem-link" href="//item.content.urlTarget//" target="_blank">//item.content.cta ? item.content.cta : 'Explore'//</div>
+            <div class="menuItem-link" href="//'/' + item.id//" ng-click="visit($event)">//item.content.cta ? item.content.cta : 'Explore'//</div>
           </div>
         </div>
-      </a> -->
+      </a>
       <div class="menu-overlay"></div>
     </div>
   </div>
@@ -244,6 +213,10 @@
 
     <div class="map-legend">
       <span class="legend-title">Explore the Map</span>
+      <div class="legend-item">
+        <span class="legend-icon typeIcon--village"></span>
+        <span class="legend-label">Village</span>
+      </div>
       <div class="legend-item">
         <span class="legend-icon typeIcon--culture"></span>
         <span class="legend-label">Culture</span>
@@ -372,7 +345,7 @@
 </section>
 
 
-  <!-- <section class="intro"
+  <section class="intro"
     ng-controller="introController"
     ng-class="{'is-active': active, 'is-controls-visible': (controlActive && showControls || (currentState == 'paused'))}">
   <div class="intro-info" ng-class="{'is-active': (showLoading || showMeta), 'is-done': introEnded}">
@@ -390,7 +363,7 @@
     </div>
   </div>
 
-  <div class="intro-video intro-video--preview" style="pointer-events: auto !important"
+  <div class="intro-video intro-video--preview" style="pointer-events: auto !important; display: none!important;"
       ng-class="{'is-active': (showVideo && showPreview), 'is-done': introEnded}">
     <div id="intro-preview"></div>
   </div>
@@ -432,7 +405,7 @@
     <div class="title title--final" ng-class="{'is-active': activeTitle == 2}">Borobudur <span class="t-strikethrough">National Monument</span></div>
   </div>
 
-  <div class="controls"
+  <div class="controls" style="display: none!important;"
       ng-class="{'is-active': controlActive, 'is-forced-open': (currentState == 'paused'), 'is-visible': showControls}">
     <div class="controls-playPauseToggle" ng-class="{'is-play-btn': (currentState !== 'playing')}" ng-click="playPause()"></div>
 
@@ -452,7 +425,7 @@
 
     <div class="controls-muteToggle" ng-class="{'is-unmute-btn': isMuted}" ng-click="toggleMute()"></div>
   </div>
-</section> -->
+</section>
 
 
   <div id="stage"></div>
@@ -466,25 +439,11 @@
     <script src="./js/vendor/videojs/videojs-panorama.v5.min.js"></script>
     <script src="./js/vendor/kmlmap/KmlMapParser.js"></script>
     <script src="./js/app.js"></script>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
     <script>
-      $('.menu-open').on('click', function() {
-        // console.log('remove')
-        // $('.menu-full').toggleClass('menu-full is-moving-between ng-animate is-active-add is-active is-active-add-active');
-        $('.menu-full').toggleClass('is-active');
-        // $('.menu-main').toggleClass('menu-main is-moving-between ng-animate is-active-add is-active is-active-add-active');
-        $('.menu-main').toggleClass('is-active');
-        $('.menu').addClass('is-active');
-      });
-
-      setInterval(() => {
-        $('.menu').addClass('is-active');
-      }, 300);
-
-      setInterval(() => {
-        $('.menuContainer').removeClass('m-hide-open');
-      }, 2000);
-      
+      setTimeout(function() {
+        console.log('skip')
+          angular.element('.meta-skip').triggerHandler('click');
+      }, 1800);
     </script>
   </body>
 </html>
