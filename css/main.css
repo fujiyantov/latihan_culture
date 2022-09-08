@@ -7637,6 +7637,7 @@ only screen and (max-height: 725px) {
 .typeIcon--vrvideo,
 .typeIcon--streetview,
 .typeIcon--culture,
+.typeIcon--village,
 .typeIcon--product,
 .typeIcon--travel {
   background: center / contain no-repeat;
@@ -7651,6 +7652,7 @@ only screen and (max-height: 725px) {
   .typeIcon--vrvideo,
   .typeIcon--streetview,
   .typeIcon--culture,
+  .typeIcon--village,
   .typeIcon--product,
   .typeIcon--travel {
     height: 1.2em;
@@ -7665,6 +7667,7 @@ only screen and (max-height: 725px) {
   .typeIcon--vrvideo,
   .typeIcon--streetview,
   .typeIcon--culture,
+  .typeIcon--village,
   .typeIcon--product,
   .typeIcon--travel {
     position: relative;
@@ -7686,6 +7689,10 @@ only screen and (max-height: 725px) {
 
 .typeIcon--culture {
   background-image: url("../assets/icons/type_culture.png");
+}
+
+.typeIcon--village {
+  background-image: url("../assets/icons/type_temple.png");
 }
 
 .typeIcon--product {

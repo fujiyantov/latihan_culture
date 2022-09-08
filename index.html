@@ -22,6 +22,9 @@
         visibility: visible!important;
         background: rgba(0, 0, 0, 0.4);
       }
+      .m-hide-open {
+        display: none!important;
+      }
     </style>
   </head>
   <body ng-class="{'is-mobile-chrome': isMobileChrome}" style="background: url('../assets/background-1.jpg') center/cover no-repeat; height: 100vh;">
@@ -61,7 +64,7 @@
     ng-class="{'is-active': menuActive}">
   <div class="menu-main is-moving-between is-active"
       ng-class="{'is-active': (active == 'main'), 'is-moving-between': movingBetween}">
-    <div class="menuContainer">
+    <div class="menuContainer m-hide-open">
       <a href="/map" ng-click="visit($event)" class="menuItem">
         <div class="menuItem-background">
           <div ng-if="isMobile" style="background-image: url('https://wallpaperaccess.com/full/2708552.jpg')"></div>
@@ -477,6 +480,10 @@
       setInterval(() => {
         $('.menu').addClass('is-active');
       }, 300);
+
+      setInterval(() => {
+        $('.menuContainer').removeClass('m-hide-open');
+      }, 2000);
       
     </script>
   </body>

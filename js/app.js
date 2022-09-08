@@ -2,8 +2,8 @@ let startedData;
 getData();
 
 async function getData() {
-    const url = "https://dm.fujiyantov.id/api/v2/collections"
-    // const url = "https://cms.borobudurside.com/api/v2/collections"
+    // const url = "https://dm.fujiyantov.id/api/v2/collections"
+    const url = "https://cms.borobudurside.com/api/v2/collections"
     const response = await fetch(url)
     if (response) {
 
